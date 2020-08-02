@@ -3,4 +3,3 @@ frames_processed/
 *.mp4
 *.avi
 *.wav
-__pycache__/

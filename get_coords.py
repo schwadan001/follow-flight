@@ -4,14 +4,14 @@ import os
 from conf import conf
 
 parser = OptionParser()
-parser.add_option('--start_nbr', default=str(0))
+parser.add_option('--start', default=str(0))
 (options, args) = parser.parse_args()
-start_img_name = "frame_{}.jpg".format(options.start_nbr.zfill(10))
+start_img_name = "frame_{}.jpg".format(options.start.zfill(10))
 
 window_name = "Frame"
 
-#with open(conf["coord_file"], "w") as f:
-    #f.write("img_name,x,y\n")
+with open(conf["coord_file"], "w") as f:
+    f.write("img_name,x,y\n")
 
 img_names = os.listdir(conf["img_folder"])
 
