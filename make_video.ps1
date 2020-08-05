@@ -13,7 +13,7 @@ if ( $proj_name -eq $null ) {
     if ( $trail -eq $null ) {
         Start-Process python process_images.py -Wait
     } else {
-        Start-Process python process_images.py --trail $trail -Wait  
+        Start-Process python -Wait -ArgumentList 'process_images.py', '--trail', "$trail"
     }
     Write-Output "Constructing AVI video from frames..."
     Start-Process python construct_video.py -Wait

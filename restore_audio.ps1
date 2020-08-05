@@ -18,7 +18,7 @@ if ( $proj_name -eq $null ) {
     ffmpeg -i $silent_video_path -i ./$proj_path/audio.wav -codec copy -shortest $final_video_avi
     Remove-Item $silent_video_path
     Write-Output "Converting from avi to mp4"
-    if ( Test-Path -Path $final_video_avi ) {
+    if ( Test-Path -Path $final_video_mp4 ) {
         Remove-Item $final_video_mp4
     }
     ffmpeg -i $final_video_avi $final_video_mp4
