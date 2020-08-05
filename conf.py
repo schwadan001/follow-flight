@@ -5,7 +5,7 @@ project_path = ".\\projects\\{}".format(project_name)
 
 conf = {
     "video_file": "video.mp4",
-    "follow_flight_video_file": "video_follow_flight.avi",
+    "slient_video_file": "follow_flight_silent.avi",
     "audio_file": "audio.wav",
     "coord_file": "coordinates.csv",
     "gap_fill_coord_file": "coordinates_complete.csv",

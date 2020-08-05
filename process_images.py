@@ -18,6 +18,7 @@ parser.add_option('--trail', default=str(999999999))
 (options, args) = parser.parse_args()
 trail = int(options.trail)
 
+color = (212, 0, 255)
 thickness = 4
 
 coords = []
@@ -36,10 +37,11 @@ for cur_img in coords[1:]:
     img = cv2.imread(img_path)
     for hist_c in [img for img in coords if img["img_name"] <= cur_img["img_name"]]:
         first_coord = (hist_c["img_name"] == coords[0]["img_name"])
-        outside_trail = get_img_file_nbr(cur_img["img_name"]) - get_img_file_nbr(hist_c["img_name"]) >= trail
+        outside_trail = get_img_file_nbr(
+            cur_img["img_name"]) - get_img_file_nbr(hist_c["img_name"]) >= trail
         if not first_coord and not outside_trail:
-            cv2.line(img, pt1=(x, y), pt2=(hist_c["x"], hist_c["y"]), color=(
-                245, 248, 114), thickness=thickness)
+            cv2.line(img, pt1=(x, y), pt2=(
+                hist_c["x"], hist_c["y"]), color=color, thickness=thickness)
         x, y = hist_c["x"], hist_c["y"]
     output_file = "{}\\{}".format(
         conf["processed_img_folder"], cur_img["img_name"])
@@ -55,10 +57,11 @@ for img_name in [i for i in img_names if i > last_coord]:
     img = cv2.imread(img_path)
     for hist_c in coords:
         first_coord = (hist_c["img_name"] == coords[0]["img_name"])
-        outside_trail = get_img_file_nbr(img_name) - get_img_file_nbr(hist_c["img_name"]) >= trail
+        outside_trail = get_img_file_nbr(
+            img_name) - get_img_file_nbr(hist_c["img_name"]) >= trail
         if not first_coord and not outside_trail:
-            cv2.line(img, pt1=(x, y), pt2=(hist_c["x"], hist_c["y"]), color=(
-                245, 248, 114), thickness=thickness)
+            cv2.line(img, pt1=(x, y), pt2=(
+                hist_c["x"], hist_c["y"]), color=color, thickness=thickness)
         x, y = hist_c["x"], hist_c["y"]
     output_file = "{}\\{}".format(conf["processed_img_folder"], img_name)
     cv2.imwrite(output_file, img)

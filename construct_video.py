@@ -28,7 +28,7 @@ first_img = get_img_file_cv(img_names[0])
 
 height, width, layers = first_img.shape
 video = cv2.VideoWriter(
-    conf["follow_flight_video_file"], 0, fps, (width, height)
+    conf["slient_video_file"], 0, fps, (width, height)
 )
 
 for img_name in img_names[1:]:
