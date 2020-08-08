@@ -1,7 +1,7 @@
 import os
 
 project_name = "elm_creek_6_recoil"
-project_path = ".\\projects\\{}".format(project_name)
+project_path = ".\\follow-flight-projects\\{}".format(project_name)
 
 conf = {
     "video_file": "video.mp4",

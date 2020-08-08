@@ -1,6 +1,2 @@
 __pycache__/
-frames/
-frames_processed/
-*.mp4
-*.avi
-*.wav
+follow-flight-projects/

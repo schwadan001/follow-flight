@@ -1,12 +1,12 @@
 $proj_name=$args[0]
 $trail=$args[1]
 
-$valid_projects=( Get-ChildItem ./projects -directory | ForEach-Object -Process {$_.Name} )
+$proj_path="./follow-flight-projects/$proj_name"
 
 if ( $proj_name -eq $null ) {
     Write-Output "Must specify project name as first positional argument"
     Write-Output "   - ex. restore_audio.ps1 my_project_name"
-} elseif ( $valid_projects -contains $proj_name ) {
+} elseif ( Test-Path $proj_path -PathType Container ) {
     Write-Output "Filling in coordinate gaps..."
     Start-Process python fill_gaps.py -Wait
     Write-Output "Processing images to add shot tracking..."
