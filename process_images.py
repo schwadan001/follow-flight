@@ -18,8 +18,8 @@ parser.add_option('--trail', default=str(999999999))
 (options, args) = parser.parse_args()
 trail = int(options.trail)
 
-# pink color = (212, 0, 255)
-color = (255, 255, 255)
+# color = (212, 0, 255) # pink
+color = (255, 255, 255) # white
 thickness = 4
 
 coords = []
