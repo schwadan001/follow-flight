@@ -27,10 +27,14 @@ for img_name in [i for i in img_names if i >= start_img_name]:
 
     cv2.namedWindow(window_name, cv2.WND_PROP_FULLSCREEN)
     cv2.setWindowProperty(
-        window_name, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+        window_name, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN
+    )
     cv2.setMouseCallback(window_name, get_coordinates)
 
-    while cv2.getWindowProperty(window_name, 0) >= 0:
-        cv2.imshow(window_name, img)
-        if cv2.waitKey(10) & 0xFF == 27:
-            break
+    try:
+        while cv2.getWindowProperty(window_name, 0) >= 0:
+            cv2.imshow(window_name, img)
+            if cv2.waitKey(10) & 0xFF == 27:
+                break
+    except cv2.error:
+        pass

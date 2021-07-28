@@ -1,6 +1,6 @@
 import os
 
-project_name = "elm_creek_6_recoil"
+project_name = "elm_creek_18_sergeant"
 project_path = ".\\follow-flight-projects\\{}".format(project_name)
 
 conf = {
